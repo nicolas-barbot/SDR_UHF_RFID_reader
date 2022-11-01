@@ -2,12 +2,7 @@ Simple Low Cost Open Source UHF RFID Reader
 
 N. Barbot, R. De Amorim Jr, P. Nikitin
 
-This project is a simple low-cost SDR RFID UHF reader capable of reading a tag in real time.
-This work is a direct continuation of the initial design proposed in [1].
-This reader is designed around a simple asynchronous OOK modulator in transmission and an envelope detector in reception.
-All tasks specific to the RFID protocol including clock recovery, data recovery and frame detection are handled in software by
-a Arduino Uno micro-controller. This reader is able to generate any RFID command supported by the protocol and to decode
-any message backscattered by the tag in real time.
+This project is a simple low-cost SDR RFID UHF reader capable of reading a tag in real time. This work is a direct continuation of the initial design proposed in [1]. This reader is designed around a simple asynchronous OOK modulator in transmission and an envelope detector in reception. All tasks specific to the RFID protocol including clock recovery, data recovery and frame detection are handled in software by a Arduino Uno micro-controller. This reader is able to generate any RFID command supported by the protocol and to decode any message backscattered by the tag in real time. 
 
 Citing this work:
 
