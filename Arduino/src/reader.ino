@@ -1,9 +1,3 @@
-/*This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
-of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.*/
-
 #define TARI 20//between 6.25 and 25 micro second (int)
 #define PW (unsigned)TARI/2		//between max(0.265*TARI,2) and 0.525*TARI micro second (int)
 #define L0 (unsigned)TARI 		//TARI
@@ -47,9 +41,11 @@ void setup()
   
   Serial.begin(9600);
   pinMode(13, OUTPUT); //ENTX
-  pinMode(12, OUTPUT); //ASKD
+  pinMode(12, OUTPUT); //FSK
+  pinMode(11, OUTPUT); //ASKD
   digitalWrite(13,HIGH);
-  digitalWrite(12,HIGH);
+  digitalWrite(13,HIGH);
+  digitalWrite(11,HIGH);
 
   pinMode(8, INPUT);    
   digitalWrite(8, HIGH);
@@ -128,7 +124,7 @@ void loop()
   
   read_answer(5000);  //timeout of 5 ms
 
-  //CLR(PORTB, 5); //at the end of the round swith of the carrier
+  //CLR(PORTB, 3); //at the end of the round swith of the carrier
 
   for (i = 0; i < 7; i++)
   {
@@ -294,7 +290,7 @@ end:i = i+1;
   Serial.print(1e3/avg);
   Serial.println(" kb/s");
   
-  for (i = 0; i<160; i++)
+  /*for (i = 0; i<160; i++)
   {
      Serial.print(answer[i]);
      Serial.print(" ");
@@ -311,68 +307,68 @@ end:i = i+1;
     Serial.print(" ");
     Serial.print(timing[i]-timing[i-1]);
   }
-  Serial.println("");
+  Serial.println("");*/
   for (i = 0; i<160; i++)
       answer[i] = 0;
   i_glob = 0;
   j_glob = 0;
-  //while(1);
+  while(1);
   return;
 }
 
 inline void preamble()
 {
-  CLR(PORTB, 4);
+  CLR(PORTB, 3);
   delayMicroseconds(12);
   send_data_0();
   RTcal();
   TRcal();
-  SET(PORTB, 4);
+  SET(PORTB, 3);
 }
 
 inline void sync()
 {
-  CLR(PORTB, 4);
+  CLR(PORTB, 3);
   delayMicroseconds(12);
   send_data_0();
   RTcal();
-  SET(PORTB, 4);
+  SET(PORTB, 3);
 }
 
 inline void send_data_0() //duration: TARI
 {
-  SET(PORTB, 4);
+  SET(PORTB, 3);
   delayMicroseconds(TARI-PW+2);
-  CLR(PORTB, 4);
+  CLR(PORTB, 3);
   delayMicroseconds(PW);
-  SET(PORTB, 4);
+  SET(PORTB, 3);
 }
 
 inline void send_data_1() //duration: 1.5 to 2 TARI
 {
-  SET(PORTB, 4);
+  SET(PORTB, 3);
   delayMicroseconds(L1-PW+2);
-  CLR(PORTB, 4);
+  CLR(PORTB, 3);
   delayMicroseconds(PW);
-  SET(PORTB, 4);
+  SET(PORTB, 3);
 }
 
 inline void RTcal() //duration: 2.5 to 3 TARI
 {
-  SET(PORTB, 4);
+  SET(PORTB, 3);
   delayMicroseconds(RTCAL-PW+2);  //data_0 + data_1
-  CLR(PORTB, 4);
+  CLR(PORTB, 3);
   delayMicroseconds(PW);
-  SET(PORTB, 4);
+  SET(PORTB, 3);
 }
 
 inline void TRcal() //duration: 1.1 to 3 RTcal
 {
-  SET(PORTB, 4);
+  SET(PORTB, 3);
   delayMicroseconds(TRCAL-PW+2); 
-  CLR(PORTB, 4);
+  CLR(PORTB, 3);
   delayMicroseconds(PW);
-  SET(PORTB, 4);
+  SET(PORTB, 3);
 }
 
 void Query()
