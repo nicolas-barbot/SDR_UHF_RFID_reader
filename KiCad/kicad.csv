@@ -1,0 +1,15 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"P1";"Socket_Strip_Arduino_1x08";1;"Power";;;
+2;"P2";"Socket_Strip_Arduino_1x06";1;"Analog";;;
+3;"P3";"Socket_Strip_Arduino_1x10";1;"Digital";;;
+4;"P4";"Socket_Strip_Arduino_1x08";1;"Digital";;;
+5;"P5,P6,P7,P8";"Arduino_1pin";4;"CONN_01X01";;;
+6;"CB0,CB1,CL1,CM1,CM2,CM3,CX1,CX2";"C_0603_1608Metric_Pad1.05x0.95mm_HandSolder";8;"C";;;
+7;"D1,D2";"SOT-323";2;"D";;;
+8;"LM1,LT1";"L_0603_1608Metric_Pad1.05x0.95mm_HandSolder";2;"L";;;
+9;"R1,R2,RL1,RPS1";"R_0603_1608Metric_Pad1.05x0.95mm_HandSolder";4;"R";;;
+10;"U1";"10L QFN 3x3 Dual";1;"TH72035";;;
+11;"U2";"SOIC-8_3.9x4.9mm_P1.27mm";1;"OP179GS";;;
+12;"U3";"circulator";1;"cicrulator";;;
+13;"U4";"SMA_EDGE";1;"SMA_EDGE";;;
+14;"Y1";"Crystal_SMD_HC49-SD_HandSoldering";1;"Crystal";;;

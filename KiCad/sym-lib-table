@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name custom)(type Legacy)(uri /home/nico/mcf/research/rfid/reader/kicad/custom.lib)(options "")(descr ""))
+)
